@@ -8,7 +8,7 @@ destory方法,当Servlet对象退出声明周期时,负责释放占有的资源
 
 当Web容器接收到某个Servlet请求时,Servlet把请求封装成一个HttpServletRequest对象,然后把对象传给Servlet的对应的服务方法.
 
-     HTTP的请求方式包括DELETE,GET,OPTIONS,POST,PUT和TRACE,在HttpServlet类中分别提供了相应的服务方法,它们是,doDelete(),doGet(),doOptions(),doPost(), doPut()和doTrace(). 
+HTTP的请求方式包括DELETE,GET,OPTIONS,POST,PUT和TRACE,在HttpServlet类中分别提供了相应的服务方法,它们是,doDelete(),doGet(),doOptions(),doPost(), doPut()和doTrace(). 
 
 HttpServlet的功能  
 
@@ -40,41 +40,6 @@ HttpServlet首先必须读取Http请求的内容。Servlet容器负责创建Http
 
 4）生成HTTP响应结果。通过HttpServletResponse对象生成响应结果，它有一个getWriter()方法，该方法返回一个PrintWriter对象。
 
-举个例子如下：
-
-package mypack;
-import javax.servlet.*;
-import javax.servlet.http.*;
-import java.io.*;
-public class HelloServlet extends HttpServlet//第一步：扩展HttpServlet抽象类 
-{
- //第二步：覆盖doGet()方法
- public void doGet(HttpServletRequest request,
-  HttpServletResponse response)throws IOException,ServletException{
-  //第三步：获取HTTP请求中的参数信息
-  String clientName=request.getParameter("clientName");
-  if(clientName!=null)
-   clientName=new String(clientName.getBytes("ISO-8859-1"),"GB2312");
-  else
-   clientName="我的朋友";
-
-  //第四步：生成HTTP响应结果
-  PrintWriter out;
-  String title="HelloServlet";
-  String heading1="HelloServlet的doGet方法的输出：";
-  //set content type
-  response.setContentType("text/html;charset=GB2312");
-  //write html page
-  out=response.getWriter();
-  out.print("<HTML><HEAD><TITLE>"+title+"</TITLE>");
-  out.print("</HEAD><BODY>");
-  out.print(heading1);
-  out.println("<h1><p>"+clientName+":您好</h1>");
-  out.print("</BODY></HTML>");
-
-  out.close();
- }
-}
 
 在web.xml中添加
 
