@@ -93,6 +93,6 @@ public class HelloServlet extends HttpServlet//第一步：扩展HttpServlet抽�
 
 实现service方法。 
 
-    Servlet的主要功能是接受从浏览器发送过来的HTTP请求（request），并返回HTTP响应（response）。这个工作是在service方法中完成的。service方法包括从request对象获得客户端数据和向response对象创建输出。 
+ Servlet的主要功能是接受从浏览器发送过来的HTTP请求（request），并返回HTTP响应（response）。这个工作是在service方法中完成的。service方法包括从request对象获得客户端数据和向response对象创建输出。 
 
-    如果一个Servlet从javax.servlet.http.HttpServlet继承，实现了doPost或doGet方法，那么这个Servlet只能对POST或GET做出响应。如果开发人员想处理所有类型的请求（request），只要简单地实现service方法即可（但假如选择实现service方法，则不必实现doPost或doGet方法，除非在service方法的开始调用super.service()）。
+ 如果一个Servlet从javax.servlet.http.HttpServlet继承，实现了doPost或doGet方法，那么这个Servlet只能对POST或GET做出响应。如果开发人员想处理所有类型的请求（request），只要简单地实现service方法即可（但假如选择实现service方法，则不必实现doPost或doGet方法，除非在service方法的开始调用super.service()）。
